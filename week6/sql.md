@@ -10,25 +10,26 @@
 
 use ecommercedata;
 create table if not exists userinfo(
-  userid tinytext,
-  username tinytext
-  registerdate date 
+  userid varchar(12),
+  username varchar(12),
+  registerdate date,
+  primary key(userid)
 ) engine=InnoDB default charset=utf8;
 
 创建第二个表：
 
-create table if not exist userbuy (
-  userid tinytext,
-  goodid tinytext,
+create table if not exists userbuy (
+  userid varchar(12),
+  goodid varchar(15),
   buydate date
 ) engine=InnoDB default charset=utf8;
 
 创建第三个表：
 
-create table if not exist goodsinfo(
-  goodid tinytext;
-  goodname tinytext;
-  category tinytext;
+create table if not exists goodsinfo(
+  goodid varchar(15),
+  goodname varchar(50),
+  category varchar(10),
   price float
 ) engine=InnoDB default charset=utf8;
 
