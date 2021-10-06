@@ -11,8 +11,8 @@
 use ecommercedata;
 create table if not exists userinfo(
   userid varchar(12),
-  username varchar(12),
-  registerdate date,
+  username varchar(24),
+  registertime datetime,
   primary key(userid)
 ) engine=InnoDB default charset=utf8;
 
@@ -21,7 +21,7 @@ create table if not exists userinfo(
 create table if not exists userbuy (
   userid varchar(12),
   goodid varchar(15),
-  buydate date
+  buytime datetime
 ) engine=InnoDB default charset=utf8;
 
 创建第三个表：
