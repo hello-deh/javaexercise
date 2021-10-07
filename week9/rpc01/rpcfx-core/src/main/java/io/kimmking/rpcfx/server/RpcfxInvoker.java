@@ -8,6 +8,7 @@ import io.kimmking.rpcfx.api.RpcfxResponse;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.util.Arrays;
 
 public class RpcfxInvoker {
@@ -29,7 +30,7 @@ public class RpcfxInvoker {
 
         try {
             Class<?> cl = Class.forName(serviceClass);
-            Object service = cl.newInstance();
+            Object service = resolver.resolve(cl);
 
             Method method = resolveMethodFromClass(service.getClass(), request.getMethod());
             Object result = method.invoke(service, request.getParams()); // dubbo, fastjson,
@@ -37,7 +38,7 @@ public class RpcfxInvoker {
             response.setResult(JSON.toJSONString(result, SerializerFeature.WriteClassName));
             response.setStatus(true);
             return response;
-        } catch (IllegalAccessException | InvocationTargetException | ClassNotFoundException | InstantiationException e) {
+        } catch (IllegalAccessException | InvocationTargetException | ClassNotFoundException e) {
 
             // 3.Xstream
 
