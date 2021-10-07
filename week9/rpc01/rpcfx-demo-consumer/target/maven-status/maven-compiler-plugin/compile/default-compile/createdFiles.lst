@@ -1,0 +1,3 @@
+io\kimmking\rpcfx\demo\consumer\RpcfxClientApplication.class
+io\kimmking\rpcfx\demo\consumer\RpcfxClientApplication$RandomLoadBalancer.class
+io\kimmking\rpcfx\demo\consumer\RpcfxClientApplication$TagRouter.class
