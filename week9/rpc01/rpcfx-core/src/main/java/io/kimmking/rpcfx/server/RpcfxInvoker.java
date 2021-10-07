@@ -30,7 +30,7 @@ public class RpcfxInvoker {
         try {
             Class<?> cl = Class.forName(serviceClass);
             Object service = cl.newInstance();
-            
+
             Method method = resolveMethodFromClass(service.getClass(), request.getMethod());
             Object result = method.invoke(service, request.getParams()); // dubbo, fastjson,
             // 两次json序列化能否合并成一个
